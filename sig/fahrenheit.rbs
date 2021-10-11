@@ -1,0 +1,6 @@
+class Fahrenheit
+  def convert_to_celsius: () -> Float
+
+  def convert_to_kelvin: () -> Float
+
+end

@@ -1,0 +1,6 @@
+class Celsius
+  def convert_to_kelvin: () -> Float
+
+  def convert_to_fahrenheit: () -> Float
+
+end

@@ -1,0 +1,9 @@
+class TemperatureConverter
+  attr_accessor temperature: Float
+
+  def initialize: () -> Temperature
+
+  def type_set: (String from) -> TemperatureConverter
+
+  def convert_to: (String to) -> Float
+end

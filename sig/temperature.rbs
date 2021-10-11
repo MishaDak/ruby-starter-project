@@ -1,0 +1,5 @@
+class Welcome
+  attr_accessor value: Float
+
+  def initialize: (Float value) -> Float
+end

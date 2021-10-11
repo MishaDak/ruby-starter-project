@@ -130,7 +130,7 @@ RSpec.describe TemperatureConverter do
   describe '#convert_to' do
     subject { TemperatureConverter.new.type_set('K').convert_to('C') }
 
-    it { is_expected.to eq -273.15 }
+    it { is_expected.to eq(-273.15) }
   end
 
   describe '#convert_to' do
@@ -138,5 +138,4 @@ RSpec.describe TemperatureConverter do
 
     it { is_expected.to eq 32 }
   end
-
 end

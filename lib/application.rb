@@ -18,9 +18,5 @@ loop do
   puts "Convert from #{@from} to #{@to} result: #{@result}"
   puts 'enter yes if want quit'
   @quit = $stdin.gets.chomp
-  if @quit == 'yes' then
-    break
-  end
-
-
+  break if @quit == 'yes'
 end

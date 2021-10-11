@@ -127,9 +127,16 @@ RSpec.describe TemperatureConverter do
     it { is_expected.to eq 273.15 }
   end
 
-  describe '#covert_to_trash' do
-    subject { TemperatureConverter.new.type_set('C').convert_to('G') }
+  describe '#convert_to' do
+    subject { TemperatureConverter.new.type_set('K').convert_to('C') }
 
-    it { catch(:wrong_type) { true } }
+    it { is_expected.to eq -273.15 }
   end
+
+  describe '#convert_to' do
+    subject { TemperatureConverter.new.type_set('C').convert_to('F') }
+
+    it { is_expected.to eq 32 }
+  end
+
 end

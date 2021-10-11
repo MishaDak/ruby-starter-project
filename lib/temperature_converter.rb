@@ -18,8 +18,6 @@ class TemperatureConverter
       @temperature = Kelvin.new
     when 'F', 'f'
       @temperature = Fahrenheit.new
-    else
-      throw :wrong_type
     end
     self
   end
@@ -37,8 +35,6 @@ class TemperatureConverter
       @temperature.convert_to_kelvin
     when 'F', 'f'
       @temperature.convert_to_fahrenheit
-    else
-      throw :wrong_type
     end
   end
 end

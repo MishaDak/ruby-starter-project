@@ -1,5 +1,5 @@
-require './lib/temperature.rb'
-require './lib/fahrenheit.rb'
+require './lib/temperature'
+require './lib/fahrenheit'
 
 RSpec.describe Fahrenheit do
   describe '#convert_to_celsius' do

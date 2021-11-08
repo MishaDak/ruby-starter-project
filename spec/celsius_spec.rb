@@ -1,5 +1,5 @@
-require '../lib/temperature.rb'
-require '../lib/celsius.rb'
+require './lib/temperature'
+require './lib/celsius'
 
 RSpec.describe Celsius do
   describe '#convert_to_kelvin' do

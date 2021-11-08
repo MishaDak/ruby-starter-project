@@ -1,85 +1,69 @@
 require './lib/temperature_builder'
-require './lib/temperature'
-require './lib/fahrenheit'
-require './lib/kelvin'
-require './lib/celsius'
 
-RSpec.describe TemperatureConverter do
+RSpec.describe TemperatureBuilder do
   describe '#init' do
-    subject { TemperatureConverter.new.temperature.value }
+    subject { TemperatureBuilder.new.temperature.value }
 
     it { is_expected.to eq 0.0 }
   end
 
   describe '#type_set_celsus' do
-    subject { TemperatureConverter.new.type_set('C').temperature }
+    subject { TemperatureBuilder.new.type_set('C').temperature }
 
     it { is_expected.is_a? Celsius }
   end
 
   describe '#type_set_kelvin' do
-    subject { TemperatureConverter.new.type_set('K').temperature }
+    subject { TemperatureBuilder.new.type_set('K').temperature }
 
     it { is_expected.is_a? Kelvin }
   end
 
   describe '#type_set_fahrenheit' do
-    subject { TemperatureConverter.new.type_set('F').temperature }
-
-    it { is_expected.is_a? Fahrenheit }
-  end
-
-  describe '#type_set_celsus' do
-    subject { TemperatureConverter.new.type_set('c').temperature }
-
-    it { is_expected.is_a? Celsius }
-  end
-
-  describe '#type_set_kelvin' do
-    subject { TemperatureConverter.new.type_set('k').temperature }
-
-    it { is_expected.is_a? Kelvin }
-  end
-
-  describe '#type_set_fahrenheit' do
-    subject { TemperatureConverter.new.type_set('f').temperature }
+    subject { TemperatureBuilder.new.type_set('F').temperature }
 
     it { is_expected.is_a? Fahrenheit }
   end
 
   describe '#type_set_trash' do
-    subject { TemperatureConverter.new.type_set('G').temperature }
+    subject { TemperatureBuilder.new.type_set('G').temperature }
 
-    it { is_a? Temperature }
+    it { is_expected.is_a? Temperature }
   end
 
   describe '#value_set' do
-    subject { TemperatureConverter.new.value_set(15.2).temperature.value }
+    subject { TemperatureBuilder.new.value_set(15.2).temperature.value }
 
     it { is_expected.to eq 15.2 }
   end
 
   describe '#value_set_trash' do
-    subject { TemperatureConverter.new.value_set('G').temperature.value }
+    subject { TemperatureBuilder.new.value_set('G').temperature.value }
 
     it { is_expected.to eq 0.0 }
   end
 
-  describe '#convert_to' do
-    subject { TemperatureConverter.new.type_set('C').convert_to('K') }
-
-    it { is_expected.to eq 273.15 }
-  end
-
-  describe '#convert_to' do
-    subject { TemperatureConverter.new.type_set('K').convert_to('C') }
+  describe '#convert_to_celsius' do
+    subject { TemperatureBuilder.new.type_set('K').convert_to('C') }
 
     it { is_expected.to eq(-273.15) }
   end
 
-  describe '#convert_to' do
-    subject { TemperatureConverter.new.type_set('C').convert_to('F') }
+  describe '#convert_to_kelvin' do
+    subject { TemperatureBuilder.new.type_set('C').convert_to('K') }
+
+    it { is_expected.to eq 273.15 }
+  end
+
+  describe '#convert_to_fahrenheit' do
+    subject { TemperatureBuilder.new.type_set('C').convert_to('F') }
 
     it { is_expected.to eq 32 }
+  end
+
+  describe '#covert_to_trash' do
+    subject { TemperatureBuilder.new.type_set('C').convert_to('G') }
+
+    it { is_expected.is_a? TemperatureBuilder }
   end
 end

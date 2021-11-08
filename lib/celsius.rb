@@ -1,9 +1,11 @@
+require_relative 'temperature'
+
 class Celsius < Temperature
-  def convert_to_kelvin
+  def to_kelvin
     (@value + 273.15).round(2)
   end
 
-  def convert_to_fahrenheit
-    ((@value * 1.8) + 32).round(2)
+  def to_fahrenheit
+    ((@value * 9.0 / 5.0) + 32.0).round(2)
   end
 end

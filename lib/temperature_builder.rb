@@ -1,10 +1,10 @@
 require_relative 'temperature'
 require_relative 'celsius'
-require_relative 'fahrenheit'
 require_relative 'kelvin'
+require_relative 'fahrenheit'
 
-class TemperatureConverter
-  attr_accessor :temperature
+class TemperatureBuilder
+  attr_reader :temperature
 
   def initialize
     @temperature = Temperature.new
@@ -12,11 +12,11 @@ class TemperatureConverter
 
   def type_set(from)
     case from
-    when 'C', 'c'
+    when 'C'
       @temperature = Celsius.new
-    when 'K', 'k'
+    when 'K'
       @temperature = Kelvin.new
-    when 'F', 'f'
+    when 'F'
       @temperature = Fahrenheit.new
     end
     self
@@ -29,12 +29,12 @@ class TemperatureConverter
 
   def convert_to(to)
     case to
-    when 'C', 'c'
-      @temperature.convert_to_celsius
-    when 'K', 'k'
-      @temperature.convert_to_kelvin
-    when 'F', 'f'
-      @temperature.convert_to_fahrenheit
+    when 'C'
+      @temperature.to_celsius
+    when 'K'
+      @temperature.to_kelvin
+    when 'F'
+      @temperature.to_fahrenheit
     end
   end
 end

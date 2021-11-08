@@ -1,9 +1,12 @@
+require_relative 'temperature'
+require_relative 'celsius'
+
 class Fahrenheit < Temperature
-  def convert_to_celsius
-    ((@value - 32) * 5 / 9).round(2)
+  def to_celsius
+    ((@value - 32.0) * (5.0 / 9.0)).round(2)
   end
 
-  def convert_to_kelvin
-    Celsius.new(convert_to_celsius).convert_to_kelvin
+  def to_kelvin
+    Celsius.new(to_celsius).to_kelvin.round(2)
   end
 end
